@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+Blogs
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+    <!--        #Menu Categories-->
+            <div class="col-3">
+                {% include 'partials/_categories.html' %}
+            </div>
+    <!--        #Cards-->
+            <div class="col-9">
+                <h1> All Blogs </h1>
+                <hr>
+                {% if blogs %}
+                    {% for blog in blogs %}
+
+                            {% include 'partials/_card.html' %}
+
+                    {% endfor %}
+                {% else %}
+                    <div class="alert alert-warning"> <p>No Blogs</p></div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

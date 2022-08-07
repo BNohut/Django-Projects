@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock %}
+
+{% block title %}
+Homepage
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+    <!--        #Menu Categories-->
+            <div class="col-3">
+                {% include 'partials/_categories.html' %}
+            </div>
+    <!--        #Cards-->
+            <div class="col-9">
+                {% for blog in blogs %}
+                    {% if blog.is_home %}
+                        {% include 'partials/_card.html' %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js_files %}
+    <script src="{% static 'blog/js/script.js' %}"></script>
+{% endblock %}

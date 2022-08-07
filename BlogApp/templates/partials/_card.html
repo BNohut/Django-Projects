@@ -1,0 +1,19 @@
+{% load static %}
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-md-3">
+            <img class="img-fluid" src="{{ blog.image.url }}">
+        </div>
+        <div class="col-md-9">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'blog_details' blog.slug %}">
+                        {{blog.title}}
+                    </a>
+                </h5>
+                <p class="card-text">{{blog.description |striptags |slice:"0:60"}}</p>
+            </div>
+        </div>
+    </div>
+
+</div>
